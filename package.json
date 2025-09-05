@@ -1,7 +1,18 @@
 {
-  "name": "penny-compo",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@lipnstar/component-library",
+  "version": "3.1.0",
+  "description": "一个业务组件库",
+  "author": "Lipn",
+  "license": "MIT",
+  "keywords": [
+    "vue",
+    "component",
+    "library"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lipnnnn/my-compo.git"
+  },
   "type": "module",
   "files": [
     "dist"
@@ -9,18 +20,24 @@
   "sideEffects": [
     "dist/index.css"
   ],
-  "module": "./dist/penny-compo.js",
+  "style": "dist/index.css",
+  "module": "./dist/component-library.js",
   "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/penny-compo.js",
+      "import": "./dist/component-library.js",
       "types": "./dist/types/index.d.ts"
+    },
+    "./dist/": {
+      "import": "./dist/",
+      "types": "./dist/"
     }
   },
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@vueuse/core": "^13.9.0"

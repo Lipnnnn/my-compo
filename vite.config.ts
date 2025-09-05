@@ -10,7 +10,7 @@ export default defineConfig({
   plugins: [
     vue(),
     Components({
-      resolvers: [ArcoResolver()], // 自动引入 Arco 组件 & 样式
+      resolvers: [ArcoResolver({importStyle: 'css',})], // 自动引入 Arco 组件 & 样式
     }),
     dts({
       tsconfigPath: resolve(__dirname, 'tsconfig.build.json'),
@@ -20,15 +20,15 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'PennyCompo',
-      fileName: 'penny-compo',
+      name: 'componentLibrary',
+      fileName: 'component-library',
       formats: ['es'],
     },
     rollupOptions: {
       external: ['vue', '@vueuse/core'],
       output: {
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name === 'penny-compo.css') {
+          if (assetInfo.name === 'component-library.css') {
             return 'index.css'; // 👈 修改最终的 css 文件名
           }
           return assetInfo.name as string;
