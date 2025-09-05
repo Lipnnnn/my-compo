@@ -1,6 +1,5 @@
 import type { App } from 'vue';
 import FilterForm from './components/FilterForm';
-import type { FilterFormConfig } from './components/FilterForm/types'
 
 import './index.css'
 
@@ -12,7 +11,8 @@ const install = (app: App) => {
   });
 };
 
-export { install, FilterForm, type FilterFormConfig };
+export { install, FilterForm };
+export * from './components/FilterForm/types'
 
 export default {
   install
